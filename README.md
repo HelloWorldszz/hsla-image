@@ -1,8 +1,18 @@
-## Welcome to GitHub Pages
+## HSLA Image color space:
+HSL is short for Hue, Saturation and Luminance.
 
-You can use the [editor on GitHub](https://github.com/adilraad2001/hsla-image/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+![Image](http://www.chaospro.de/documentation/html/paletteeditor/images/huesat.jpg)
+| Hue           | Degree        |        Color |
+| ------------- | ------------- | -------------|
+| 0  | 0  | red|
+| 1  | 60  |yellow |
+| 2  |120  |green |
+| 3 | 180  |cyan |           
+| 4  | 240  |blue |
+| 5  | 300  |magneta |
+| 6  | 360) |red |
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
 
 ### Markdown
 
