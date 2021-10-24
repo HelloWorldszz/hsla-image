@@ -199,6 +199,9 @@ Illini::Illini(string filemane, int c1, int c2):Image(filemane){
     readFromFile(filemane);
    for(unsigned x=0;x<width();x++)
        for(unsigned y=0;y<height();y++){
+       
+       // TODO: This implementation does not take a consideration of the 
+       // of **cirtulcar** aspect of the hue color
            HSLAPixel &P=getPixel(x,y);
            if(P.h<=c2&&P.h>=c1){
                            if((c2-P.h)<(P.h-c1)){
@@ -227,3 +230,7 @@ public:
 #endif // ILLINI_H
 
 ```
+
+### Spotlight?
+
+Todo : Also finish the Spotlight class
