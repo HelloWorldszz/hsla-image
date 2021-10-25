@@ -231,6 +231,73 @@ public:
 
 ```
 
-### Spotlight?
+### Spotlight
+
+A function that focuses light on a specific point of the image based on coordinates by raising the degree of illumination and partial opacity for the rest of the parts.
+
+<p align="center">*Example Spotlight[500,200]</p>
+
+ <p align="center"> <img  src="https://user-images.githubusercontent.com/86808736/138618110-897f7d8e-29ae-4a34-9cf7-996e34dbc7af.png"> <br></p> 
+ <p align="center">*change SpotPoint[900,300]</p>
+ <p align="center"> <img  src="https://user-images.githubusercontent.com/86808736/138618127-8d695337-9ea2-4c04-9803-e24382ea8654.png"> <br></p> 
+
+
+
+```cpp
+// Cpp Code for Spotlight :
+
+Spotlight::Spotlight(string filemane,int X,int Y):Image(filemane),x(X),y(Y)
+{
+    for(unsigned x = 0; x < width()  ; x++){
+       for(unsigned y = 0; y < height(); y++)
+       {
+          //reference on the pixel
+          HSLAPixel &P = getPixel(x, y);
+               double distance=sqrt((x-X)*(x-X)+(y-Y)*(y-Y));
+               double dec = 1-distance*0.5/100 ;
+               if (distance>160) {
+                   dec=0.2;
+               }
+               P.l = dec*P.l;
+             }
+}
+}
+
+//ChangeSpotPoint by [900,300]
+void Spotlight::changeSpotPoint(int centerX, int centerY){
+
+
+    for(unsigned X = 0; X < width()  ; X++){
+       for(unsigned Y = 0; Y < height(); Y++)
+       {
+          //reference on the pixel
+          HSLAPixel &P = getPixel(X, Y);
+
+               double distance1=sqrt((x-X)*(x-X)+(y-Y)*(y-Y));
+               double distance=sqrt((X-centerX)*(X-centerX)+(Y-centerY)*(Y-centerY));
+               double dec = 1-distance*0.5/100 ;
+               double inc = 1-distance1*0.5/100 ;
+               if (distance1>160) {
+                   inc=0.2;
+                }
+                P.l =P.l/inc;
+               if (distance>160) {
+                   dec=0.2;
+               }
+               P.l = dec*P.l;
+               }
+               }
+               }
+//header
+
+class Spotlight:public Image
+{
+public:
+    int x,y;
+    Spotlight(string filemane,int x,int y);
+    void changeSpotPoint(int x, int y);
+};
+
+#endif // SPOTLIGHT_H
 
 Todo : Also finish the Spotlight class
